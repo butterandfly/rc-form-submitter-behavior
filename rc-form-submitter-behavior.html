@@ -1,0 +1,56 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<script>
+  /**
+   * 该behavior可帮助你实现一个submitter的行为。
+   *
+   * @polymerBehavior
+   * @demo demo/index.html
+   */
+
+  Polymer.RcFormSubmitterBehavior = {
+    properties: {
+      /**
+       * 实现该属性，提供submitter所控制的form。
+       * 其必需是一个"iron-form"。
+       *
+       */
+      form: Object,
+
+    },
+
+    // Element Behavior
+
+    /**
+     * 提交表单；表单通过验证后会执行validatedSubmit方法，反之则执行invalidatedSubmit。
+     *
+     */
+    submitForm: function() {
+      var form = this.form;
+
+      if (!form.validate()) {
+        this.invalidatedSubmit();
+        return;
+      }
+
+      var formData = form.serialize();
+      this.validatedSubmit(formData);
+    },
+
+    /**
+     * 在此方法内实现表单通过验证后的submit逻辑。
+     * @param {Object} formData 表单数据。
+     */
+    validatedSubmit: function(formData) {
+
+    },
+
+    /**
+     * 在此方法内实现表单验证失败后的逻辑。
+     *
+     */
+    invalidatedSubmit: function() {
+
+    }
+  };
+</script>

@@ -1,0 +1,39 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../iron-form/iron-form.html">
+<link rel="import" href="../../paper-input/paper-input.html">
+<link rel="import" href="../../paper-button/paper-button.html">
+
+<link rel="import" href="../rc-form-submitter-behavior.html">
+
+<dom-module id="simple-submitter">
+  <template>
+    <form id="form" is="iron-form">
+      <paper-input name="username" label="用户名" auto-validate required pattern=".+"></paper-input>
+      <paper-button raised on-tap="submitForm">提交</paper-button>
+    </form>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'simple-submitter',
+      behaviors: [
+        Polymer.RcFormSubmitterBehavior
+      ],
+      properties: {
+        form: {
+          type: Object,
+          value: function() {
+            return this.$.form;
+          }
+        }
+      },
+
+      validatedSubmit: function(formData) {
+        window.alert('通过验证！');
+      },
+      invalidatedSubmit: function() {
+        window.alert('通过失败！');
+      }
+    });
+  </script>
+</dom-module>
