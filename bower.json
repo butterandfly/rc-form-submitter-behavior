@@ -1,18 +1,20 @@
 {
   "name": "rc-form-submitter-behavior",
-  "version": "1.0.6",
+  "version": "0.1.1",
   "authors": [
-    "Anonymous <anonymous@example.com>"
+    "butterandfly <zero.hero.lin@gmail.com>"
   ],
-  "description": "An element providing a solution to no problem in particular.",
+  "description": "A polymer behavior of form submitting",
+  "private": true,
   "keywords": [
     "web-component",
     "polymer",
-    "seed"
+    "behavior",
+    "form",
+    "submit"
   ],
   "main": "rc-form-submitter-behavior.html",
   "license": "http://polymer.github.io/LICENSE.txt",
-  "homepage": "https://github.com/<USERNAME>/seed-element/",
   "ignore": [
     "/.*",
     "/test/"
