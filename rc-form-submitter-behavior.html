@@ -2,7 +2,7 @@
 
 <script>
   /**
-   * 该behavior可帮助你实现一个submitter的行为。
+   * 该behavior可帮助你实现一个检验表单的行为——通过触发submitForm()方法去检验表单，表单验证通过之后执行validatedSubmit()，否则执行invalidatedSubmit()。
    *
    * @polymerBehavior
    * @demo demo/index.html
@@ -11,11 +11,11 @@
   Polymer.RcFormSubmitterBehavior = {
     properties: {
       /**
-       * 实现该属性，提供submitter所控制的form。
-       * 其必需是一个"iron-form"。
+       * 该属性提供给submitter所控制的form。
+       * 其必须是一个"iron-form"。
        *
        */
-      form: Object,
+      form: Object
 
     },
 

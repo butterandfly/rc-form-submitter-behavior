@@ -7,10 +7,29 @@
 
 <dom-module id="simple-submitter">
   <template>
-    <form id="form" is="iron-form">
-      <paper-input name="username" label="用户名" auto-validate required pattern=".+"></paper-input>
-      <paper-button raised on-tap="submitForm">提交</paper-button>
-    </form>
+    <style>
+      #card {
+        width: 500px;
+        padding: 50px;
+        margin: 0 auto;
+        box-shadow: 0px 2px 2px #e0e0e0, 0 -1px 2px #e0e0e0, 2px 0 2px #e0e0e0, -2px 0 2px #e0e0e0;
+        border-radius: 2px;
+      }
+      paper-button {
+        margin-top: 15px;
+      }
+      #result {
+        margin-top: 15px;
+        color: rgba(95, 39, 55, 0.8);;
+      }
+    </style>
+    <div id="card">
+      <form id="form" is="iron-form" class="card-centent">
+        <paper-input name="username" label="用户名" auto-validate required pattern=".+"></paper-input>
+        <paper-button raised on-tap="submitForm">提交</paper-button>
+      </form>
+      <div id="result"></div>
+    </div>
   </template>
 
   <script>
@@ -29,10 +48,12 @@
       },
 
       validatedSubmit: function(formData) {
-        window.alert('通过验证！');
+        // window.alert('通过验证！');
+        this.$.result.innerHTML = '恭喜，通过验证！';
       },
       invalidatedSubmit: function() {
-        window.alert('通过失败！');
+        // window.alert('通过失败！');
+        this.$.result.innerHTML = '对不起，没有通过验证！';
       }
     });
   </script>
