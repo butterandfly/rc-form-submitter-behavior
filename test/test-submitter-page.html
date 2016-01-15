@@ -1,0 +1,47 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../iron-form/iron-form.html">
+<link rel="import" href="../../paper-input/paper-input.html">
+<link rel="import" href="../rc-form-submitter-behavior.html">
+
+<dom-module id="test-submitter-page">
+  <template>
+    <form id="form" is="iron-form">
+      <paper-input id="text" type="text" name="name" auto-validate required pattern=".+">
+      <button id="submitBtn" type="button" on-tap="submitForm">提交</button>
+    </form>
+  </template>
+</dom-module>
+
+<script>
+(function() {
+
+  Polymer({
+    is: 'test-submitter-page',
+    behaviors: [
+      Polymer.RcFormSubmitterBehavior
+    ],
+
+    properties: {
+      validate: {
+        type: String,
+        value: 'normal',
+        notify: true
+      },
+      form: {
+        value: function() {
+          return this.$.form;
+        }
+      }
+    },
+
+    validatedSubmit: function() {
+      this.validate = 'good';
+    },
+
+    invalidatedSubmit: function() {
+      this.validate = 'bad';
+    }
+  });
+
+})();
+</script>
